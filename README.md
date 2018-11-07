@@ -9,4 +9,5 @@ git clone https://github.com/gilnoiman/Todo-List__Angular
 
 
 2. Install dependencies
+
 npm install
