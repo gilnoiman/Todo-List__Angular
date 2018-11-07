@@ -2,7 +2,6 @@
     <p class="todo-list-title">
         TO DO LIST - <span>TODAY</span>
     </p>
-
     <div class="todo-list-wrap">
         <div class="new-task">
             <mat-checkbox class="checkbox" (change)="selectAll();"></mat-checkbox>
@@ -14,7 +13,6 @@
             <div class="task-row" *ngFor="let task of tasks$; let i = index">
                 <mat-checkbox class="checkbox" [checked]="task.complete == 'true'" (change)="selectSingleTask(i);"></mat-checkbox>
                 <span class="task-text" [ngClass]="{'mark-text': task.complete=='true'}">{{task.title}}</span>
-                <!-- <input type="button" class="delete-button" value="X" (click)="deleteTask(i)"> -->
                 <div class="delete-button" (click)="deleteTask(i)">
                     <i>
                         <svg style="width:30px;height:30px" viewBox="0 0 24 24">
