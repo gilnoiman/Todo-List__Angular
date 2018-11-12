@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Itasks } from '../interfaces/itasks';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,7 +8,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./todo-list.component.scss']
 })
 export class TodoListComponent implements OnInit {
-  tasks$: any = [];
+  tasks$: Itasks[];
   selectAllBool: Boolean = false;
   newTodo: string;
 
@@ -15,16 +16,15 @@ export class TodoListComponent implements OnInit {
 
   // function that delete todo row
   deleteTask = function(task) {
-    console.log('the task to delete is: ', task);
     this.tasks$.splice(task, 1);
   };
 
   // function that add todo row
   addTask = function(newTaskText: string) {
     if (newTaskText && this.tasks$) {
-      const newtask = {'title': newTaskText, 'complete': 'false'};
+      const newtask: Itasks = {'id': (this.tasks$.length + 1), 'title': newTaskText, 'complete': false};
       this.tasks$.unshift(newtask);
-      this.newTodo = '';
+      this.newTodo = ''; // delete the text inside the textBox
     }
   };
 
